@@ -43,4 +43,19 @@ router.post('/addnotes', fetchuser, [
     }
 })
 
+//Route 3: Update existing notes "api/auth/updatenote"
+router.put('/updatenote/:id', fetchuser, async (req, res) => {
+    const{ title, description ,tag} = req.body;
+    //create a new object
+    const newnote = {};
+    if(title){newnote.title = title};
+    if(description){newnote.description = description};
+    if(tag){newnote.tag = tag};
+    //find note to be updated & update it
+    let note =await Note.findByIdAndUpdate(req.params.id)
+    if(!note){return res.status(404).send("Not Found")}
+    if(note.user.toString()!==req.user.id){return res.status(401).send("Not Authorized")}
+    note = await Note.findByIdAndUpdate(req.params.id,{$set:newnote},{new:true})
+    res.json({note});
+})
 module.exports = router
