@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import noteContext from '../context/notes/NoteContext'
 
-export default function About() {
-    return (
+const About = () => {
+     return (
         <div>
-            Cloud Book  -  Save & Upload Books
+            Cloud notebook is a open source cloud where you can upload notes and other stuff on cloud servers for free
         </div>
     )
 }
+
+export default About
