@@ -27,7 +27,7 @@ const AddNote = () => {
                     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                     <label className ="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={handleClick}><img src="https://cdn-icons-png.flaticon.com/512/2795/2795067.png" alt="Upload" height="30px" width="30px"/> Add Notes</button>
             </form>
             </div>
     )
